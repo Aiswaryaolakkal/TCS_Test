@@ -25,7 +25,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         val searchAdapter = SearchAdapter()
 
         binding.apply {
-            list.apply {
+            bookRecyclerview.apply {
                 adapter = searchAdapter
                 layoutManager = LinearLayoutManager(requireContext())
                 setHasFixedSize(true)
