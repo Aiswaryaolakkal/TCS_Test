@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import aiswarya.hopes.tcs_test.R
 import aiswarya.hopes.tcs_test.databinding.FragmentSearchBinding
 import aiswarya.hopes.tcs_test.util.onQueryTextChanged
-import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import androidx.appcompat.widget.SearchView
@@ -33,7 +32,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
 
 
         }
-        viewModel.tasks.observe(viewLifecycleOwner) {
+        viewModel.books.observe(viewLifecycleOwner) {
             searchAdapter.submitList(it)
         }
 

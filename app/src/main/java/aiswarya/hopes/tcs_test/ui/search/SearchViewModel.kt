@@ -18,11 +18,11 @@ class SearchViewModel @Inject constructor(
 
 ) : ViewModel() {
     val searchQuery = MutableStateFlow("")
-    private val tasksFlow = searchQuery.flatMapLatest {
+    private val booksFlow = searchQuery.flatMapLatest {
         bookRepository.getBooks(it)
     }
 
-    val tasks = tasksFlow.asLiveData()
+    val books = booksFlow.asLiveData()
 
     init {
         viewModelScope.launch(Dispatchers.IO) {

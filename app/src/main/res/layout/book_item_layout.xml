@@ -23,6 +23,7 @@
                 android:layout_gravity="center"
                 app:cardCornerRadius="6dp"
                 app:cardElevation="@dimen/fourdp"
+                android:layout_marginLeft="8dp"
                 app:cardUseCompatPadding="true"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -37,8 +38,7 @@
                         android:layout_width="@dimen/img_height"
                         android:layout_height="@dimen/img_height"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/ic_baseline_book_24"
-                       />
+                        android:src="@drawable/ic_baseline_book_24" />
 
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
