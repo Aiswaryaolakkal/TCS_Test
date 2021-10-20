@@ -1,6 +1,8 @@
 package aiswarya.hopes.tcs_test.ui.settings
 
 import aiswarya.hopes.tcs_test.R
+import aiswarya.hopes.tcs_test.databinding.FragmentHomeBinding
+import aiswarya.hopes.tcs_test.databinding.FragmentSettingsBinding
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,7 +15,7 @@ import androidx.lifecycle.ViewModelProvider
 
 class SettingsFragment : Fragment() {
     // TODO: Rename and change types of parameters
-
+    private var binding: FragmentSettingsBinding? = null
     private lateinit var settinsViewModel: SettingsViewModel
 
 
@@ -22,13 +24,13 @@ class SettingsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         settinsViewModel = ViewModelProvider(this).get(SettingsViewModel::class.java)
-        // Inflate the layout for this fragment
-        val root = inflater.inflate(R.layout.fragment_settings, container, false)
-        val textView: TextView = root.findViewById(R.id.text_setting)
+        binding = FragmentSettingsBinding.inflate(inflater, container, false)
+        val view = binding!!.root
+
         settinsViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
+            binding!!.textSetting.text = it
         })
-        return root
+        return view
 
     }
 

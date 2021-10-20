@@ -9,23 +9,33 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import aiswarya.hopes.tcs_test.R
+import aiswarya.hopes.tcs_test.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
-
+    private var binding: FragmentHomeBinding? = null
     private lateinit var homeViewModel: HomeViewModel
 
+
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         homeViewModel =
-                ViewModelProvider(this).get(HomeViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
+            ViewModelProvider(this).get(HomeViewModel::class.java)
+
+
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
+        val view = binding!!.root
+
         homeViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
+            binding!!.textHome.text = it
         })
-        return root
+        return view
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
     }
 }

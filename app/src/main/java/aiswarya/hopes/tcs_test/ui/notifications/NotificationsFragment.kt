@@ -10,24 +10,28 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import aiswarya.hopes.tcs_test.R
+import aiswarya.hopes.tcs_test.databinding.FragmentHomeBinding
+import aiswarya.hopes.tcs_test.databinding.FragmentNotificationsBinding
+import aiswarya.hopes.tcs_test.databinding.FragmentSettingsBinding
 
 class NotificationsFragment : Fragment() {
-
+    private var binding: FragmentNotificationsBinding? = null
     private lateinit var notificationsViewModel: NotificationsViewModel
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         notificationsViewModel =
-                ViewModelProvider(this).get(NotificationsViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_notifications, container, false)
-        val textView: TextView = root.findViewById(R.id.text_notifications)
+            ViewModelProvider(this).get(NotificationsViewModel::class.java)
+
+        binding = FragmentNotificationsBinding.inflate(inflater, container, false)
+        val view = binding!!.root
         notificationsViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
+            binding!!.textNotifications.text = it
         })
-        return root
+        return view
     }
 
 }

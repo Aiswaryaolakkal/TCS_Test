@@ -11,8 +11,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 
 /**
- * [RecyclerView.Adapter] that can display a [DummyItem].
- * TODO: Replace the implementation with code for your data type.
+ *Book Adapter
  */
 class SearchAdapter : ListAdapter<BookEntity, SearchAdapter.SearchViewHolder>(DiffCallback()) {
 
@@ -35,9 +34,6 @@ class SearchAdapter : ListAdapter<BookEntity, SearchAdapter.SearchViewHolder>(Di
             }
         }
     }
-
-
-
     class DiffCallback : DiffUtil.ItemCallback<BookEntity>() {
         override fun areItemsTheSame(oldItem: BookEntity, newItem: BookEntity) =
             oldItem.id == newItem.id

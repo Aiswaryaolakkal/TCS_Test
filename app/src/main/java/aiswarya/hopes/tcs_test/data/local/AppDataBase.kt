@@ -12,10 +12,10 @@ import javax.inject.Provider
 abstract class AppDatabase  : RoomDatabase() {
     abstract fun bookDao(): BookDao
 
-    class Callback @Inject constructor(
+   /* class Callback @Inject constructor(
         private val database: Provider<AppDatabase>,
         @ApplicationScope private val applicationScope: CoroutineScope
-    )
+    )*/
 
 }
 

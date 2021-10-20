@@ -16,11 +16,6 @@
         android:name="aiswarya.hopes.tcs_test.ui.search.SearchFragment"
         android:label="@string/title_search"
         tools:layout="@layout/fragment_search" />
-  <!--  <fragment
-        android:id="@+id/navigation_search"
-        android:name="aiswarya.hopes.tcs_test.ui.search.SearchFragment"
-        android:label="@string/title_search"
-        tools:layout="@layout/fragment_search" />-->
 
     <fragment
         android:id="@+id/navigation_notifications"
