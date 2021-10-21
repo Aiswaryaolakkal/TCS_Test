@@ -14,8 +14,8 @@ import androidx.lifecycle.ViewModelProvider
 
 
 class SettingsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var binding: FragmentSettingsBinding? = null
+
+    private lateinit var binding: FragmentSettingsBinding
     private lateinit var settinsViewModel: SettingsViewModel
 
 
@@ -25,10 +25,10 @@ class SettingsFragment : Fragment() {
     ): View? {
         settinsViewModel = ViewModelProvider(this).get(SettingsViewModel::class.java)
         binding = FragmentSettingsBinding.inflate(inflater, container, false)
-        val view = binding!!.root
+        val view = binding.root
 
         settinsViewModel.text.observe(viewLifecycleOwner, Observer {
-            binding!!.textSetting.text = it
+            binding.textSetting.text = it
         })
         return view
 

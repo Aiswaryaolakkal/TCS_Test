@@ -12,7 +12,7 @@ import aiswarya.hopes.tcs_test.R
 import aiswarya.hopes.tcs_test.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
-    private var binding: FragmentHomeBinding? = null
+    private lateinit var binding: FragmentHomeBinding
     private lateinit var homeViewModel: HomeViewModel
 
 
@@ -23,19 +23,14 @@ class HomeFragment : Fragment() {
     ): View? {
         homeViewModel =
             ViewModelProvider(this).get(HomeViewModel::class.java)
-
-
         binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val view = binding!!.root
+        val view = binding.root
 
         homeViewModel.text.observe(viewLifecycleOwner, Observer {
-            binding!!.textHome.text = it
+            binding.textHome.text = it
         })
         return view
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        binding = null
-    }
+
 }

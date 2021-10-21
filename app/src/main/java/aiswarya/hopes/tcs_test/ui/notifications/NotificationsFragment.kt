@@ -15,7 +15,7 @@ import aiswarya.hopes.tcs_test.databinding.FragmentNotificationsBinding
 import aiswarya.hopes.tcs_test.databinding.FragmentSettingsBinding
 
 class NotificationsFragment : Fragment() {
-    private var binding: FragmentNotificationsBinding? = null
+    private lateinit var binding: FragmentNotificationsBinding
     private lateinit var notificationsViewModel: NotificationsViewModel
 
     override fun onCreateView(
@@ -27,9 +27,9 @@ class NotificationsFragment : Fragment() {
             ViewModelProvider(this).get(NotificationsViewModel::class.java)
 
         binding = FragmentNotificationsBinding.inflate(inflater, container, false)
-        val view = binding!!.root
+        val view = binding.root
         notificationsViewModel.text.observe(viewLifecycleOwner, Observer {
-            binding!!.textNotifications.text = it
+            binding.textNotifications.text = it
         })
         return view
     }
