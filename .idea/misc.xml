@@ -3,8 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Advik/AndroidStudioProjects/TCS_test/TCS_test/app/src/main/res/layout/activity_book_details.xml" value="0.1" />
         <entry key="..\:/Users/Advik/AndroidStudioProjects/TCS_test/TCS_test/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/Advik/AndroidStudioProjects/TCS_test/TCS_test/app/src/main/res/layout/book_item_layout.xml" value="0.33" />
+        <entry key="..\:/Users/Advik/AndroidStudioProjects/TCS_test/TCS_test/app/src/main/res/layout/fragment_book_details.xml" value="0.12318840579710146" />
+        <entry key="..\:/Users/Advik/AndroidStudioProjects/TCS_test/TCS_test/app/src/main/res/layout/fragment_detail_view.xml" value="0.22" />
+        <entry key="..\:/Users/Advik/AndroidStudioProjects/TCS_test/TCS_test/app/src/main/res/layout/fragment_home.xml" value="0.12318840579710146" />
+        <entry key="..\:/Users/Advik/AndroidStudioProjects/TCS_test/TCS_test/app/src/main/res/layout/fragment_notifications.xml" value="0.13541666666666666" />
         <entry key="..\:/Users/Advik/AndroidStudioProjects/TCS_test/TCS_test/app/src/main/res/layout/fragment_search.xml" value="0.13385416666666666" />
         <entry key="..\:/Users/Advik/AndroidStudioProjects/TCS_test/TCS_test/app/src/main/res/layout/fragment_search_list.xml" value="0.1" />
         <entry key="..\:/Users/Advik/AndroidStudioProjects/TCS_test/TCS_test/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20416666666666666" />

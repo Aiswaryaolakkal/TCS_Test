@@ -10,4 +10,5 @@
     <dimen name="fortysp">14sp</dimen>
     <dimen name="twlsp">12sp</dimen>
     <dimen name="icon_sie">30dp</dimen>
+    <dimen name="icon_sie_big">100dp</dimen>
 </resources>
