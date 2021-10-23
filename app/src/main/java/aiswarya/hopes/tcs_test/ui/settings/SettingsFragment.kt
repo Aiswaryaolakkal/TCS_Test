@@ -30,6 +30,7 @@ class SettingsFragment : Fragment() {
         settinsViewModel.text.observe(viewLifecycleOwner, Observer {
             binding.textSetting.text = it
         })
+        binding.titleSettings.text = "Settings"
         return view
 
     }

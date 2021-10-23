@@ -1,35 +1,43 @@
 package aiswarya.hopes.tcs_test.ui.home
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import aiswarya.hopes.tcs_test.R
 import aiswarya.hopes.tcs_test.databinding.FragmentHomeBinding
+import aiswarya.hopes.tcs_test.ui.search.BookAdapter
+import android.view.*
+import androidx.core.os.bundleOf
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import dagger.hilt.android.AndroidEntryPoint
 
-class HomeFragment : Fragment() {
-    private lateinit var binding: FragmentHomeBinding
-    private lateinit var homeViewModel: HomeViewModel
+@AndroidEntryPoint
+class HomeFragment : Fragment(R.layout.fragment_home) {
+    private val homeViewModel: HomeViewModel by viewModels()
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val binding = FragmentHomeBinding.bind(view)
+        val recentBookAdapter = BookAdapter()
+        recentBookAdapter.onChoose {
+            val data = bundleOf(
+                "bookId" to it.id,
+            )
+            findNavController().navigate(R.id.action_navigation_home_to_detailViewFragment,data)
+        }
+        binding.apply {
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
-        binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val view = binding.root
+            recentBookRv.apply {
+                adapter = recentBookAdapter
+                layoutManager = LinearLayoutManager(requireContext())
+            }
+            titleHome.text = "Home"
+        }
+        homeViewModel.books.observe(viewLifecycleOwner) {
+            recentBookAdapter.submitList(it)
+        }
 
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-            binding.textHome.text = it
-        })
-        return view
     }
 
 

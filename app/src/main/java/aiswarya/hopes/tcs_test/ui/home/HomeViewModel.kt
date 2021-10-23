@@ -1,13 +1,25 @@
 package aiswarya.hopes.tcs_test.ui.home
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import aiswarya.hopes.tcs_test.data.repository.BookRepository
+import androidx.lifecycle.*
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class HomeViewModel : ViewModel() {
+@HiltViewModel
+class HomeViewModel @Inject constructor(
+    private val bookRepository: BookRepository
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "Welcome to BookHouse"
+) : ViewModel() {
+    val recenBook = MutableStateFlow("")
+    private val booksFlow = recenBook.flatMapLatest {
+        bookRepository.getRecentBook()
     }
-    val text: LiveData<String> = _text
+
+    val books = booksFlow.asLiveData()
+
 }
+

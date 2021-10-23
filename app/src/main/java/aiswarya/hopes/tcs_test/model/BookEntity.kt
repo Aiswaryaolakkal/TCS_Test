@@ -10,6 +10,10 @@ data class BookEntity(
     @ColumnInfo(name = "name")
     var bookName: String? = null,
     @ColumnInfo(name = "author_name")
-    var authorName: String? = null
+    var authorName: String? = null,
+    @ColumnInfo(name = "open_time")
+    var open_time: Long? = null,
+    @ColumnInfo(name = "is_open")
+    var isopen: Boolean = false
 )
 

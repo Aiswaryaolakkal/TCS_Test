@@ -24,9 +24,12 @@ class SearchViewModel @Inject constructor(
 
     val books = booksFlow.asLiveData()
 
+
     init {
         viewModelScope.launch(Dispatchers.IO) {
-            bookRepository.addBooks()
+            bookRepository.addBooks();
         }
     }
+
+
 }

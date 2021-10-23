@@ -21,19 +21,7 @@ object AppModule {
     fun provideDatabase(
         app: Application,
 
-    ) = Room.databaseBuilder(app, AppDatabase::class.java,"local_dbs")
+        ) = Room.databaseBuilder(app, AppDatabase::class.java, "local_dbs")
         .fallbackToDestructiveMigration()
         .build()
-
-    @Provides
-    fun provideBookDao(db: AppDatabase) = db.bookDao()
-
-    @ApplicationScope
-    @Provides
-    @Singleton
-    fun provideApplicationScope() = CoroutineScope(SupervisorJob())
 }
-
-@Retention(AnnotationRetention.RUNTIME)
-@Qualifier
-annotation class ApplicationScope

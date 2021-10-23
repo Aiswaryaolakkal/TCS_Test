@@ -9,7 +9,11 @@
         android:id="@+id/navigation_home"
         android:name="aiswarya.hopes.tcs_test.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_detailViewFragment"
+            app:destination="@id/detailViewFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_search"
@@ -38,7 +42,11 @@
     <fragment
         android:id="@+id/detailViewFragment"
         android:name="aiswarya.hopes.tcs_test.ui.book_details.DetailViewFragment"
-        android:label="DetailViewFragment" >
+        android:label="DetailViewFragment"
+        tools:layout="@layout/fragment_detail_view">
 
+        <argument
+            android:name="bookId"
+            app:argType="integer" />
     </fragment>
 </navigation>

@@ -8,19 +8,31 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface BookDao {
     @Query("SELECT * FROM books WHERE name LIKE '%' || :searchQuery || '%' ")
-    fun getTasks(searchQuery: String): Flow<List<BookEntity>>
+    fun getBooks(searchQuery: String): Flow<List<BookEntity>>
+
+    @Query("SELECT * FROM books")
+    suspend fun getBookList(): List<BookEntity>
+
+    @Query("SELECT * FROM books WHERE id=:bookId")
+    suspend fun getBookById(bookId: Int): BookEntity
+
+    @Query("SELECT * FROM books WHERE is_open= 1 ORDER BY open_time DESC Limit 2")
+    fun getRecentBook(): Flow<List<BookEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(task: BookEntity)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-   suspend fun insertAll(books: List<BookEntity>)
+    suspend fun insertAll(books: List<BookEntity>)
 
     @Update
-    suspend fun update(task: BookEntity)
+    suspend fun update(bookEntity: BookEntity)
+
+    @Query("UPDATE books SET open_time=:time ,is_open=1 WHERE id = :id  ")
+    suspend fun setOpenstatus(id: Int, time: Long)
 
     @Delete
-    suspend fun delete(task: BookEntity)
+    suspend fun delete(bookEntity: BookEntity)
 
 
 }

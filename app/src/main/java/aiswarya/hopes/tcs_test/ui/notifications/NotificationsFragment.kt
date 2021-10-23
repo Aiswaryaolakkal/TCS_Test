@@ -32,6 +32,7 @@ class NotificationsFragment : Fragment() {
         notificationsViewModel.text.observe(viewLifecycleOwner, Observer {
             binding.textNotifications.text = it
         })
+        binding.titleNotification.text = "Notification"
         binding.textNotifications.setOnClickListener {
             findNavController().navigate(R.id.action_navigation_notifications_to_detailViewFragment)
         }

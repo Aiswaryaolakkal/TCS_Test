@@ -8,7 +8,9 @@
     <dimen name="img_height">60dp</dimen>
     <dimen name="eightdp">8dp</dimen>
     <dimen name="fortysp">14sp</dimen>
+    <dimen name="twntysp">16sp</dimen>
     <dimen name="twlsp">12sp</dimen>
-    <dimen name="icon_sie">30dp</dimen>
-    <dimen name="icon_sie_big">100dp</dimen>
+    <dimen name="icon_size">30dp</dimen>
+    <dimen name="icon_size_big">100dp</dimen>
+    <dimen name="title_height">60dp</dimen>
 </resources>

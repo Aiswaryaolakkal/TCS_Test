@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context=".ui.book_details.DetailViewFragment">
+
     <androidx.cardview.widget.CardView
         android:id="@+id/details_book_icon_cv"
-        android:layout_width="@dimen/icon_sie_big"
-        android:layout_height="@dimen/icon_sie_big"
+        android:layout_width="@dimen/icon_size_big"
+        android:layout_height="@dimen/icon_size_big"
         android:layout_gravity="center"
+        android:layout_margin="@dimen/text_margin"
         app:cardCornerRadius="6dp"
         app:cardElevation="@dimen/fourdp"
-        android:layout_margin="@dimen/text_margin"
         app:cardUseCompatPadding="true"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <RelativeLayout
@@ -24,8 +25,8 @@
 
             <ImageView
                 android:id="@+id/detail_book_img"
-                android:layout_width="@dimen/icon_sie_big"
-                android:layout_height="@dimen/icon_sie_big"
+                android:layout_width="@dimen/icon_size_big"
+                android:layout_height="@dimen/icon_size_big"
                 android:scaleType="fitCenter"
                 android:src="@drawable/ic_baseline_book_24" />
 
@@ -38,31 +39,29 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/eightdp"
         android:layout_marginTop="@dimen/eightdp"
+        android:letterSpacing=".2"
         android:text="title"
         android:textAllCaps="true"
         android:textColor="@color/black"
         android:textSize="@dimen/fortysp"
         android:textStyle="bold"
-        android:letterSpacing=".2"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/details_book_icon_cv"
-         />
+        app:layout_constraintTop_toBottomOf="@+id/details_book_icon_cv" />
 
     <TextView
         android:id="@+id/author_name_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/text_margin"
-        android:layout_marginTop="@dimen/icon_sie"
+        android:layout_marginTop="@dimen/icon_size"
+        android:letterSpacing=".15"
         android:text="title"
         android:textAllCaps="true"
-        android:letterSpacing=".15"
         android:textColor="@color/black"
         android:textSize="@dimen/fortysp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/book_name_tv"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/book_name_tv" />
 
 
     <TextView
@@ -76,8 +75,7 @@
         android:textColor="@color/black"
         android:textSize="@dimen/twlsp"
         android:textStyle="italic"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/author_name_tv"
-        />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/author_name_tv" />
 </androidx.constraintlayout.widget.ConstraintLayout>
