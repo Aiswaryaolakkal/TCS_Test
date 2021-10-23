@@ -35,6 +35,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             titleHome.text = "Home"
         }
         homeViewModel.books.observe(viewLifecycleOwner) {
+            if(it.isEmpty()){
+                binding.textHome.visibility=View.VISIBLE
+                binding.recentBookRv.visibility=View.GONE
+                binding.textHome.text ="Welcome to BookHouse"
+            }
+            binding.titleHome.text = "Home"
             recentBookAdapter.submitList(it)
         }
 

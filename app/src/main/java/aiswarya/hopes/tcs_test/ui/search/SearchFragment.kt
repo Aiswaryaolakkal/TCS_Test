@@ -50,17 +50,5 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         setHasOptionsMenu(true)
     }
 
-/*
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.menu_fragment, menu)
-
-        val searchItem = menu.findItem(R.id.action_search)
-        val searchView = searchItem.actionView as SearchView
-
-        searchView.onQueryTextChanged {
-            viewModel.searchQuery.value = it
-        }
-    }
-*/
 
 }
